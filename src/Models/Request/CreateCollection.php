@@ -110,7 +110,7 @@ class CreateCollection implements RequestModel
 
         if ($this->quantizationConfig instanceof DisabledQuantization) {
             $data['quantization_config'] = 'Disabled';
-        } else if ($this->quantizationConfig !== null) {
+        } elseif ($this->quantizationConfig !== null) {
             $data['quantization_config'] = $this->quantizationConfig->toArray();
         }
 
