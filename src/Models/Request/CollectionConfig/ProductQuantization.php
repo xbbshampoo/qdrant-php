@@ -14,6 +14,7 @@ class ProductQuantization implements QuantizationConfig
      * @var string
      */
     protected $compression;
+
     /**
      * @var bool|null
      */

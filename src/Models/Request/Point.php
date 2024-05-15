@@ -17,10 +17,12 @@ class Point implements RequestModel
      * @var string
      */
     protected $id;
+
     /**
      * @var mixed[]|null
      */
     protected $payload;
+
     /**
      * @var VectorStructInterface
      */

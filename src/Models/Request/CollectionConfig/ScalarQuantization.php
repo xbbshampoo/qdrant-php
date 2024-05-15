@@ -14,10 +14,12 @@ class ScalarQuantization implements QuantizationConfig
      * @var string
      */
     protected $type;
+
     /**
      * @var float|null
      */
     protected $quantile;
+
     /**
      * @var bool|null
      */

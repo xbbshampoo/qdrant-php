@@ -20,10 +20,12 @@ class CreateCollection implements RequestModel
      * @var VectorParams|VectorParams[]
      */
     protected $vectors;
+
     /**
      * @var int|null
      */
     protected $shardNumber;
+
     /**
      * @var int|null
      */

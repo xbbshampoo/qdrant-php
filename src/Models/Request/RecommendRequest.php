@@ -13,32 +13,38 @@ use Qdrant\Models\Traits\ProtectedPropertyAccessor;
 
 class RecommendRequest
 {
+    use ProtectedPropertyAccessor;
+
     /**
      * @var mixed[]
      */
     protected $positive;
+
     /**
      * @var mixed[]
      */
     protected $negative = [];
-    use ProtectedPropertyAccessor;
 
     /**
      * @var Filter|null
      */
     protected $filter;
+
     /**
      * @var string|null
      */
     protected $using;
+
     /**
      * @var int|null
      */
     protected $limit;
+
     /**
      * @var int|null
      */
     protected $offset;
+
     /**
      * @var float|null
      */
