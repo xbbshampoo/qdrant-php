@@ -13,19 +13,22 @@ use Qdrant\Models\Traits\ProtectedPropertyAccessor;
 
 class PointStruct
 {
+    use ProtectedPropertyAccessor;
+
     /**
      * @var int|string
      */
     protected $id;
+
     /**
      * @var VectorStructInterface
      */
     protected $vector;
+
     /**
      * @var mixed[]|null
      */
     protected $payload;
-    use ProtectedPropertyAccessor;
 
     /**
      * @param int|string $id

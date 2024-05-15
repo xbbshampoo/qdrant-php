@@ -11,6 +11,7 @@ use Qdrant\Domain\Assert;
 class GeoBoundingBox extends AbstractCondition implements ConditionInterface
 {
     protected const CONDITIONS = ['bottom_right', 'top_left'];
+
     /**
      * @var mixed[]
      */

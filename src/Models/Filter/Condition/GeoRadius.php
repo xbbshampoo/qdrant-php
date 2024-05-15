@@ -11,6 +11,7 @@ use Qdrant\Domain\Assert;
 class GeoRadius extends AbstractCondition implements ConditionInterface
 {
     protected const CONDITIONS = ['center', 'radius'];
+
     /**
      * @var mixed[]
      */

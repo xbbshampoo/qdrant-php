@@ -11,6 +11,7 @@ use Qdrant\Domain\Assert;
 class ValueCount extends AbstractCondition implements ConditionInterface
 {
     protected const CONDITIONS = ['gt', 'gte', 'lt', 'lte'];
+
     /**
      * @var mixed[]
      */

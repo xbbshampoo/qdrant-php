@@ -10,15 +10,17 @@ use Qdrant\Models\Traits\ProtectedPropertyAccessor;
 
 class VectorStruct implements VectorStructInterface
 {
+    use ProtectedPropertyAccessor;
+
     /**
      * @var mixed[]
      */
     protected $vector;
+
     /**
      * @var string|null
      */
     protected $name;
-    use ProtectedPropertyAccessor;
 
     public function __construct(array $vector, ?string $name = null)
     {

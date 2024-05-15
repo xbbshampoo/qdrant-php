@@ -11,6 +11,7 @@ use Qdrant\Domain\Assert;
 class Range extends AbstractCondition implements ConditionInterface
 {
     protected const CONDITIONS = ['gt', 'gte', 'lt', 'lte'];
+
     /**
      * @var mixed[]
      */

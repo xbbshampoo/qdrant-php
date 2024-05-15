@@ -13,6 +13,7 @@ class ServiceLock implements RequestModel
      * @var bool
      */
     protected $write;
+
     /**
      * @var string|null
      */

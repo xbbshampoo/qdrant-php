@@ -14,11 +14,12 @@ use Qdrant\Models\VectorStructInterface;
 
 class SearchRequest
 {
+    use ProtectedPropertyAccessor;
+
     /**
      * @var VectorStructInterface
      */
     protected $vector;
-    use ProtectedPropertyAccessor;
 
     /**
      * @var Filter|null

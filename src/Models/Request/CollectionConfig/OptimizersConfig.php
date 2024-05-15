@@ -50,7 +50,6 @@ class OptimizersConfig implements RequestModel
      */
     protected $maxOptimizationThreads;
 
-
     public function setDeletedThreshold(?float $deletedThreshold): OptimizersConfig
     {
         $this->deletedThreshold = $deletedThreshold;

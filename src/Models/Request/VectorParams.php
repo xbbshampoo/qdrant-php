@@ -13,12 +13,16 @@ use Qdrant\Exception\InvalidArgumentException;
 class VectorParams implements RequestModel
 {
     public const DISTANCE_COSINE = 'Cosine';
+
     public const DISTANCE_EUCLID = 'Euclid';
+
     public const DISTANCE_DOT = 'Dot';
+
     /**
      * @var int
      */
     protected $size;
+
     /**
      * @var string
      */
