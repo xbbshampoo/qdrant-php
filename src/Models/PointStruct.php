@@ -26,18 +26,18 @@ class PointStruct
     protected $vector;
 
     /**
-     * @var array|null
+     * @var mixed[]|null
      */
     protected $payload;
 
-    public function __construct(
-        $id,
-        VectorStructInterface $vector,
-        ?array $payload = null
-    ) {
-        $this->payload = $payload;
-        $this->vector = $vector;
+    /**
+     * @param int|string $id
+     */
+    public function __construct($id, VectorStructInterface $vector, ?array $payload = null)
+    {
         $this->id = $id;
+        $this->vector = $vector;
+        $this->payload = $payload;
     }
 
     public static function createFromArray(array $pointArray): PointStruct

@@ -13,12 +13,13 @@ class GeoRadius extends AbstractCondition implements ConditionInterface
     protected const CONDITIONS = ['center', 'radius'];
 
     /**
-     * @var array
+     * @var mixed[]
      */
     protected $radius;
 
     public function __construct(string $key, array $radius)
     {
+        $this->radius = $radius;
         parent::__construct($key);
         Assert::keysExists(
             $radius, self::CONDITIONS, 'Radius expects %s key'
@@ -26,7 +27,6 @@ class GeoRadius extends AbstractCondition implements ConditionInterface
 
         Assert::keysExists($radius['center'], ['lat', 'lon'], 'Radius center parameter expected lat and lon');
 
-        $this->radius = $radius;
     }
 
     public function toArray(): array

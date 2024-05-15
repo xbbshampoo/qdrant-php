@@ -13,7 +13,7 @@ class VectorStruct implements VectorStructInterface
     use ProtectedPropertyAccessor;
 
     /**
-     * @var array
+     * @var mixed[]
      */
     protected $vector;
 
@@ -26,11 +26,6 @@ class VectorStruct implements VectorStructInterface
     {
         $this->vector = $vector;
         $this->name = $name;
-    }
-
-    public function isNamed(): bool
-    {
-        return $this->name !== null;
     }
 
     public function getName(): ?string
@@ -47,6 +42,11 @@ class VectorStruct implements VectorStructInterface
             ];
         }
         return $this->vector;
+    }
+
+    public function isNamed(): bool
+    {
+        return $this->name !== null;
     }
 
     public function toArray(): array

@@ -17,14 +17,14 @@ use Qdrant\Models\Request\CollectionConfig\WalConfig;
 class CreateCollection implements RequestModel
 {
     /**
-     * @var array|VectorParams|VectorParams[]
+     * @var VectorParams|VectorParams[]
      */
     protected $vectors;
 
     /**
      * @var int|null
      */
-    protected $shardNumber ;
+    protected $shardNumber;
 
     /**
      * @var int|null
@@ -75,6 +75,46 @@ class CreateCollection implements RequestModel
         }
 
         return $this;
+    }
+
+    public function toArray(): array
+    {
+        $data = [];
+        if ($this->vectors) {
+            $data['vectors'] = $this->vectors;
+        }
+        if ($this->shardNumber !== null) {
+            $data['shard_number'] = $this->shardNumber;
+        }
+        if ($this->replicationFactor !== null) {
+            $data['replication_factor'] = $this->replicationFactor;
+        }
+        if ($this->writeConsistencyFactor !== null) {
+            $data['write_consistency_factor'] = $this->writeConsistencyFactor;
+        }
+        if ($this->onDiskPayload !== null) {
+            $data['on_disk_payload'] = $this->onDiskPayload;
+        }
+        if ($this->initFrom !== null) {
+            $data['init_from'] = $this->initFrom->toArray();
+        }
+        if ($this->optimizersConfig !== null) {
+            $data['optimizers_config'] = $this->optimizersConfig->toArray();
+        }
+        if ($this->hnswConfig !== null) {
+            $data['hnsw_config'] = $this->hnswConfig->toArray();
+        }
+        if ($this->walConfig !== null) {
+            $data['wal_config'] = $this->walConfig->toArray();
+        }
+
+        if ($this->quantizationConfig instanceof DisabledQuantization) {
+            $data['quantization_config'] = 'Disabled';
+        } elseif ($this->quantizationConfig !== null) {
+            $data['quantization_config'] = $this->quantizationConfig->toArray();
+        }
+
+        return $data;
     }
 
     public function setShardNumber(int $shardNumber): CreateCollection
@@ -138,45 +178,5 @@ class CreateCollection implements RequestModel
         $this->quantizationConfig = $quantizationConfig;
 
         return $this;
-    }
-
-    public function toArray(): array
-    {
-        $data = [];
-        if ($this->vectors) {
-            $data['vectors'] = $this->vectors;
-        }
-        if ($this->shardNumber !== null) {
-            $data['shard_number'] = $this->shardNumber;
-        }
-        if ($this->replicationFactor !== null) {
-            $data['replication_factor'] = $this->replicationFactor;
-        }
-        if ($this->writeConsistencyFactor !== null) {
-            $data['write_consistency_factor'] = $this->writeConsistencyFactor;
-        }
-        if ($this->onDiskPayload !== null) {
-            $data['on_disk_payload'] = $this->onDiskPayload;
-        }
-        if ($this->initFrom !== null) {
-            $data['init_from'] = $this->initFrom->toArray();
-        }
-        if ($this->optimizersConfig !== null) {
-            $data['optimizers_config'] = $this->optimizersConfig->toArray();
-        }
-        if ($this->hnswConfig !== null) {
-            $data['hnsw_config'] = $this->hnswConfig->toArray();
-        }
-        if ($this->walConfig !== null) {
-            $data['wal_config'] = $this->walConfig->toArray();
-        }
-
-        if ($this->quantizationConfig instanceof DisabledQuantization) {
-            $data['quantization_config'] = 'Disabled';
-        } elseif ($this->quantizationConfig !== null) {
-            $data['quantization_config'] = $this->quantizationConfig->toArray();
-        }
-
-        return $data;
     }
 }
